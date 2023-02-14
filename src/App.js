@@ -1,13 +1,12 @@
 import "./styles.css";
+import {quizItems} from "./data/quizData";
+import QuizDisplay from "./components/QuizDisplay";
+import { useState } from "react";
 
 export default function App() {
+  const [quizNr, setQuizNr]= useState(0);
+  console.log(quizItems)
   return (
-    <div className="App card">
-      <div className="card-header">My App</div>
-      <div className="card-body">
-        <h5>Überschrift</h5>
-        <p className="card-text">Dies ist ein Absatz </p>
-      </div>
-    </div>
+    <QuizDisplay quizItem={quizItems[quizNr]}/>
   );
 }
