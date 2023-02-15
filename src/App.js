@@ -2,6 +2,8 @@ import "./styles.css";
 import { quizItems } from "./data/quizData";
 import QuizDisplay from "./components/QuizDisplay";
 import { useState } from "react";
+import ResultsDisplay from "./components/ResultsDisplay";
+import ResultsDisplayDetails from "./components/ResultsDisplayDetails";
 
 export default function App() {
   const [hasQuizesLeft, setHasQuizesLeft] = useState(true);
@@ -22,14 +24,7 @@ export default function App() {
   return hasQuizesLeft ? (
     <QuizDisplay quizItem={currentQuizItem} setNextQuestion={setNextQuestion} />
   ) : (
-    <div>
-      You answered{" "}
-      {
-        answers.filter((answ, index) => {
-          return answ === quizItems[index].correct;
-        }, 0).length
-      }{" "}
-      of {quizItems.length} Answers correct
-    </div>
+    // <ResultsDisplay quizItems={quizItems} answers={answers}/>
+    <ResultsDisplayDetails quizItems={quizItems} answers={answers}/>
   );
 }
